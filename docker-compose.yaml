@@ -33,7 +33,7 @@ services:
       - "${FRITZBOX_PASSWORD}"
 
   pihole-exporter:
-    image: ekofr/pihole-exporter:arm64
+    image: ekofr/pihole-exporter:v0.0.11
     restart: always
     ports:
       - 9617:9617
