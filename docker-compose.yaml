@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.28.0
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yaml
+
+  grafana:
+    image: grafana/grafana:8.0.3
+    ports:
+      - 8080:3000
+    volumes:
+      - grafana-data:/var/lib/grafana
+
+  fritzbox-exporter:
+    image: mxschmitt/fritzbox_exporter
+    ports:
+      - 9133:9133
+    command:
+      - -username
+      - admin
+      - -password
+      - "${FRITZBOX_PASSWORD}"
+
+volumes:
+  prometheus-data:
+  grafana-data:
