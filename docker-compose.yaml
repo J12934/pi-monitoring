@@ -9,7 +9,10 @@ services:
     volumes:
       - ./prometheus:/etc/prometheus
       - prometheus-data:/prometheus
-    command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yaml
+    command:
+      - --web.enable-lifecycle
+      - --config.file=/etc/prometheus/prometheus.yaml
+      - --storage.tsdb.retention.time=90d
 
   grafana:
     image: grafana/grafana:8.0.3
