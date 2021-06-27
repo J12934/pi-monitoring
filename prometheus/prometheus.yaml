@@ -10,6 +10,6 @@ scrape_configs:
     metrics_path: /metrics
     static_configs:
       - targets:
-          - 'prometheus:9090'
-          - 'fritzbox-exporter:9133'
-
+          - "prometheus:9090"
+          - "fritzbox-exporter:9133"
+          - "pihole-exporter:9617"
