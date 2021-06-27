@@ -18,7 +18,7 @@ services:
       - grafana-data:/var/lib/grafana
 
   fritzbox-exporter:
-    image: mxschmitt/fritzbox_exporter
+    image: mxschmitt/fritzbox_exporter:latest-arm64v8
     ports:
       - 9133:9133
     command:
